@@ -28,7 +28,7 @@ const IntroInfoBlock: FC = () => {
             <p className={css.secondaryText}>Disclaimer: <br/> Risiken können identifiziert und damit minimiert jedoch nicht gänzlich eliminiert werden. </p>
 
 
-            <button className={cn('myBtn', css.btn)}>Weiter</button>
+            <button className={cn('myBtn', 'small', css.btn)}>Weiter</button>
         </div>
     )
 }
