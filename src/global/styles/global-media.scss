@@ -1,0 +1,11 @@
+@media screen and (max-width: 1200px) {
+  .myTabs {
+    .chakra-tabs__tab-panel {
+      padding: 0 13px;
+    }
+    .chakra-tabs__tab-panels {
+      padding: 11px 60px 0 60px;
+      border-bottom: 2px solid var(--chakra-colors-grey_dark1);
+    }
+  }
+}

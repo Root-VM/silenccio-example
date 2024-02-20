@@ -1,0 +1,73 @@
+.head{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .tabs {
+    width: 100%;
+
+    :global {
+      .chakra-tabs__tablist {
+        padding: 0 114px;
+      }
+    }
+
+    .group{
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .logo {
+    height: 48px;
+    width: auto;
+  }
+
+  .menuList {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    li{
+      cursor: pointer;
+      padding: 0 18px;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 17px;
+      color: #00008F;
+      text-transform: uppercase;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid transparent;
+
+      &.active, &:hover {
+        border-bottom-color: #F07662;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .head{
+
+    .tabs {
+      :global {
+        .chakra-tabs__tablist {
+          padding: 0 60px;
+        }
+      }
+    }
+  }
+}

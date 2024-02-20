@@ -1,0 +1,198 @@
+.wrap{
+  .main{
+    width: 100%;
+    min-height: 440px;
+    padding: 36px;
+    background-image: url("/img/girl_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 80px;
+
+    .text {
+      letter-spacing: 0.02px;
+      line-height: 17px;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1{
+      text-align: center;
+      font-size: 62px;
+      font-weight: 700;
+      line-height: 72px;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01px;
+      max-width: 1200px;
+    }
+  }
+
+  .info {
+    padding: 0 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+      color: #333;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      max-width: 715px;
+      margin-bottom: 32px;
+    }
+    .text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02px;
+      text-align: center;
+      max-width: 690px;
+      margin-bottom: 36px;
+    }
+
+    ul{
+      list-style: none;
+      margin-bottom: 36px;
+
+      li{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+
+
+        img{
+          margin-right: 9px;
+        }
+        p{
+          color: #333;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+    }
+    .btn {
+      margin-bottom: 84px;
+      text-transform: uppercase;
+    }
+  }
+
+  .cards{
+    display: grid;
+    grid-template-columns: 353px 353px 353px;
+    justify-content: center;
+    grid-gap: 50px;
+    margin-bottom: 80px;
+
+    .card {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+      background: #fff;
+      border-radius: 8px;
+      padding: 40px;
+      min-height: 498px;
+      display: flex;
+      flex-direction: column;
+
+      .title{
+        color: #333;
+        margin-bottom: 11px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: -0.01px;
+      }
+      .text {
+        color: #333;
+        margin-bottom: auto;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02px;
+      }
+      a{
+        color: #00008F;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.4px;
+        margin: 0 auto;
+      }
+      ul{
+        margin-bottom: auto;
+        li{
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.02px;
+          color: #333;
+        }
+      }
+    }
+  }
+
+  .content {
+    padding: 80px 36px 59px 36px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+      color: #333;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      margin-bottom: 29px;
+    }
+    .text{
+      color: #333;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02px;
+      margin: 0 auto 40px auto;
+      max-width: 690px;
+    }
+    .box{
+      margin: 0 auto;
+      max-width: 690px;
+      width: 100%;
+    }
+    .btn{
+      margin-bottom: 75px;
+    }
+
+    .lastTitle {
+      color: #333;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      margin-bottom: 36px;
+      font-family: var(--chakra-fonts-gergia_code);
+    }
+
+    .accordion{
+      margin-bottom: 45px;
+
+      .aBtn {
+        text-align: left;
+        text-transform: none;
+        font-size: 16px;
+      }
+    }
+  }
+}

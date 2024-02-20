@@ -1,0 +1,496 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--chakra-fonts-source_code);
+}
+body, html {
+  background-color: #fff;
+}
+
+p,
+a,
+ul,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--chakra-fonts-source_code);
+}
+
+.formLabel {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  color: #333333;
+}
+.formErrorText{
+  color: #C91432;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: -14px;
+}
+
+.myBtn {
+  width: fit-content;
+  z-index: 0;
+  overflow: hidden;
+  transition: color 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 17px;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  appearance: none;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30px;
+  margin: 0;
+  min-height: 40px;
+  hyphens: auto;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00008f;
+  border: solid 2px #00008f;
+  border-bottom-color: #00005b;
+  text-align: center;
+
+  &.small {
+    min-height: 32px;
+    padding: 0 15px;
+  }
+
+  &.white {
+    background-color: #fff;
+    color: #00008f;
+
+    &::after{
+      content: none;
+    }
+
+    &:hover{
+      background-color: #fff!important;
+      color: #00008f!important;
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+  }
+
+  &.orange {
+    background-color: #F07662;
+    color: #fff;
+    border-color: transparent;
+    transition: 0.3s;
+
+    &::after{
+      content: none;
+    }
+
+    &:hover{
+      background-color: #F07662!important;
+      color: #fff!important;
+      border-color: transparent!important;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+  }
+
+  &.white-natural {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    transition: 0.3s;
+
+    &::after{
+      content: none;
+    }
+
+    &:hover{
+      background-color: transparent!important;
+      color: #fff!important;
+      border-color: #fff!important;
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+  }
+
+  &:hover{
+    background-color: #00008f;
+    color: #fff;
+
+    cursor: pointer;
+    text-decoration: none;
+    border-color: #00005b;
+    outline: 0;
+
+
+    &::after {
+      width: 110%;
+      background-color: #00005b;
+
+    }
+  }
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 0.001px;
+    height: 100vw;
+    content: "";
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: width 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+    background-color: #00005b;
+  }
+}
+
+.myTabs {
+  background: #fff;
+
+  .chakra-tabs__tab-panel {
+    padding: 0 13px;
+  }
+  .chakra-tabs__tablist{
+    height: 40px;
+    border-color: var(--chakra-colors-grey_dark1);
+    border-radius: 0;
+    background: #fafafa;
+
+    .chakra-tabs__tab {
+      text-transform: uppercase;
+      color: var(--chakra-colors-grey_dark);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-top: none;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 18px;
+
+      &[aria-selected=true] {
+        color: var(--chakra-colors-blue);
+        --tabs-color: var(--chakra-colors-blue);
+        --tabs-border-color: var(--chakra-colors-white);
+        background: #fff;
+      }
+    }
+  }
+
+  .chakra-tabs__tab-panels {
+    padding: 11px 114px 0 114px;
+    border-bottom: 2px solid var(--chakra-colors-grey_dark1);
+  }
+}
+
+.myDropdownSimple {
+
+  &.is-open{
+    .Dropdown-arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  .Dropdown-option {
+    font-family: var(--chakra-fonts-source_code);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: #333333;
+  }
+
+  .Dropdown-control {
+    background: #fafafa;
+    cursor: pointer;
+    height: 38px;
+    border: none;
+
+    .is-selected {
+      font-family: var(--chakra-fonts-source_code);
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 22px;
+      color: #333333;
+    }
+
+    .Dropdown-arrow {
+      background-image: url("/img/icons/arrow.svg");
+      border: none;
+      width: 24px;
+      height: 24px;
+      right: 18px;
+      top: 6px;
+      transition: 0.3s;
+
+    }
+  }
+}
+
+.myInput {
+  margin-bottom: 20px;
+
+  &.chakra-input {
+    border-radius: 0;
+    border-color: #999999;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333333;
+
+    &::placeholder {
+      color: #999999;
+    }
+
+    &[aria-invalid=true] {
+      border: 1px solid #C91432;
+      box-shadow: none;
+    }
+
+    &:focus-visible, &:focus {
+      border-color: #00008F;
+      box-shadow: none;
+
+      &[aria-invalid=true] {
+        border-color: #C91432!important;
+      }
+    }
+  }
+
+  &.chakra-input[aria-invalid=true]:focus-visible{
+    border-color: #C91432!important;
+  }
+}
+
+.myDropdown {
+  margin-bottom: 20px;
+
+  &.phone {
+    .Dropdown-control{
+      padding-right: 6px;
+      min-width: 90px;
+
+      .Dropdown-arrow{
+        right: 3px;
+      }
+    }
+  }
+
+  &.error {
+    .Dropdown-control {
+      border-color: #C91432;
+
+      .Dropdown-arrow {
+        filter: brightness(0) saturate(100%) invert(15%) sepia(88%) saturate(3354%) hue-rotate(338deg) brightness(94%) contrast(100%);
+      }
+    }
+  }
+
+  &.is-open{
+    .Dropdown-arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  .Dropdown-option {
+    font-family: var(--chakra-fonts-source_code);
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+  }
+
+  .Dropdown-control {
+    background: #fafafa;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid #999999;
+    border-radius: 0;
+
+    .Dropdown-arrow {
+      background-image: url("/img/icons/arrow.svg");
+      border: none;
+      width: 24px;
+      height: 24px;
+      right: 18px;
+      top: 6px;
+      transition: 0.3s;
+
+    }
+
+    .Dropdown-placeholder {
+      color: #999;
+      font-weight: 400;
+      font-size: 14px;
+      font-family: var(--chakra-fonts-source_code);
+
+      &.is-selected {
+        color: #333333;
+      }
+    }
+  }
+}
+
+.chakra-popover__content {
+  inset: 8px auto auto 0!important;
+
+  .myPopover{
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    font-family: var(--chakra-fonts-source_code);
+    position: relative;
+    border-radius: 4px;
+    background: #4976BA;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.4px;
+
+    &:after {
+      bottom: 100%;
+      left: 50%;
+      border: 15px solid rgba(136, 183, 213, 0);
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-bottom-color: #4976BA;
+      margin-left: -15px;
+    }
+    strong{
+      font-weight: 700;
+    }
+  }
+}
+
+.myRadio{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  .chakra-radio__control {
+    border: 1px solid #999999;
+    width: 18px;
+    height: 18px;
+    position: relative;
+
+    &:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      background: transparent;
+    }
+  }
+  .chakra-radio__label {
+    font-family: var(--chakra-fonts-source_code);
+    color: #333;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.02px;
+  }
+
+  .chakra-radio {
+    margin-bottom: 16px;
+
+    &:last-child{
+        margin-bottom: 0;
+    }
+  }
+  .chakra-radio:hover:not([data-checked]){
+    .chakra-radio__control {
+      border: 1px solid #00008f;
+
+      &:after{
+        border: 1px solid #00008f;
+      }
+    }
+  }
+  .chakra-radio[data-checked]{
+    .chakra-radio__control {
+      border: 1px solid #00008f;
+
+      &:after{
+        background: #00008f;
+      }
+    }
+  }
+}
+
+.myProgress {
+  height: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: #E5E5E5;
+
+  >div:first-child{
+    background: #4976BA;
+    border-radius: 10px;
+  }
+}
+
+.myAccordion {
+  margin-bottom: 33px;
+
+  &.simple {
+    .chakra-accordion__button {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+    .chakra-accordion__panel {
+      padding-left: 4px;
+      padding-right: 4px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .chakra-accordion__item {
+    border-color: #CCCCCC;
+    position: relative;
+  }
+  .chakra-accordion__button {
+    min-height: 58px;
+    color: #00008F;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-left: 23px;
+    padding-right: 23px;
+    position: relative;
+
+    &:before{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0px;
+      width: 24px;
+      height: 24px;
+      content: url("/img/icons/arrow.svg");
+      transition: 0.3s;
+    }
+    &[aria-expanded=true]:before{
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+  .chakra-accordion__panel {
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+}

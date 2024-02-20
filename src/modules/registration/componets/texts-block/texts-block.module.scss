@@ -1,0 +1,30 @@
+.wrap{
+  width: 100%;
+  max-width: 684px;
+  .title{
+    font-family: var(--chakra-fonts-source_code);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    color: #333333;
+  }
+
+  h1{
+    font-family: var(--chakra-fonts-gergia_code);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    color: #333333;
+    margin-bottom: 32px;
+  }
+
+  .text{
+    font-family: var(--chakra-fonts-source_code);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #333333;
+  }
+}

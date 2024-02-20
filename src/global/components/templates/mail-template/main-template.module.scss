@@ -1,0 +1,30 @@
+.template{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--chakra-colors-blue);
+  border-radius: 5px 5px 0 0;
+
+  &.noPadding {
+    .content{
+      padding: 0;
+    }
+  }
+
+  .content{
+    padding: 34px 36px;
+    background: #fafafa;
+    min-height: calc(100vh - 151px);
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .template{
+    border-top: none;
+
+    .content{
+      padding: 35px 15px;
+    }
+  }
+}

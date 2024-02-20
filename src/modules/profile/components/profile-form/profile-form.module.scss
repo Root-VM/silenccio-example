@@ -1,0 +1,206 @@
+.wrap{
+  width: 100%;
+  min-width: 800px;
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  background: #fff;
+  height: 100%;
+  position: relative;
+
+  h2 {
+    color: #333333;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 28px;
+  }
+
+  .title {
+    color: #333333;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .text {
+    color: #333333;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .cancel {
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    top: 18px;
+    right: 16px;
+
+    &:hover {
+      transition: 0.3s;
+      opacity: 0.8;
+    }
+  }
+
+  .phoneLine{
+    max-width: 411px;
+    display: flex;
+    align-items: flex-start;
+
+    .drop {
+      width: 97px;
+      margin-right: 4px;
+    }
+  }
+
+  .input {
+    max-width: 411px;
+  }
+
+  .btn{
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .importantText{
+    color: #333;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .menuList {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    li{
+      cursor: pointer;
+      padding: 0 18px;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 17px;
+      color: #00008F;
+      text-transform: uppercase;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid transparent;
+
+      &.active, &:hover {
+        border-bottom-color: #F07662;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    margin: 34px 22px;
+
+    &.showFirst{
+      >form:first-child {
+          margin-left: 0;
+      }
+    }
+
+    >form {
+      transition: 0.3s;
+      width: 100%;
+      max-width: calc(100% - 44px);
+      min-width: calc(100% - 44px);
+
+      &:first-child {
+        margin-left: calc(-100%);
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .inputGroup {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+
+    :global {
+      .Dropdown-root {
+        max-width: 411px;
+      }
+    }
+    input{
+      max-width: 411px;
+    }
+
+    img{
+      cursor: pointer;
+      transition: 0.3s;
+      margin-left: 12px;
+      margin-top: 6px;
+
+      &:hover {
+        transition: 0.3s;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .drop {
+    width: 100%;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 39px;
+
+    .card{
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      border-radius: 4px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+      background: #fff;
+      padding: 27px 19px;
+
+      .cTitle{
+        color: #333;
+        font-weight: 700;
+        line-height: 29px;
+        font-size: 25px;
+        letter-spacing: -0.01px;
+        margin-bottom: 8px;
+      }
+
+      .line{
+        display: flex;
+        justify-content: space-between;
+        max-width: 250px;
+        color: #333;
+        font-weight: 600;
+        line-height: 24px;
+        font-size: 16px;
+        letter-spacing: -0.01px;
+        margin-bottom: 4px;
+
+        span{
+          font-weight: 400;
+        }
+      }
+
+      .cText {
+        color: #333;
+        font-weight: 400;
+        line-height: 24px;
+        font-size: 16px;
+        letter-spacing: 0.02px;
+        margin: 16px 0;
+      }
+    }
+  }
+}
