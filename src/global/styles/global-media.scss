@@ -8,4 +8,56 @@
       border-bottom: 2px solid var(--chakra-colors-grey_dark1);
     }
   }
+
+  .myAccordion {
+    margin-bottom: 22px;
+
+    .chakra-accordion__button {
+      padding-left: 13px;
+      padding-right: 13px;
+      text-align: left;
+    }
+    .chakra-accordion__panel {
+      padding-left: 13px;
+      padding-right: 13px;
+    }
+
+    &.menuAccordion {
+      position: relative;
+
+      .chakra-accordion__button{
+        padding: 18px 32px;
+        font-family: var(--chakra-fonts-source_code);
+
+        &[aria-expanded=true] {
+          & ~ .chakra-collapse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            z-index: 1;
+            width: 100%;
+          }
+          &:before{
+            transform: translateY(-50%) rotate(-90deg);
+          }
+        }
+
+        &:before{
+          right: 32px;
+          transform: translateY(-50%) rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  .chakra-portal {
+    .chakra-modal__overlay {
+      margin-top: 71px;
+      position: absolute;
+    }
+    .chakra-slide {
+      box-shadow: none;
+    }
+  }
 }

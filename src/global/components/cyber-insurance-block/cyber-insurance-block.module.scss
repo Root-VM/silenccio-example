@@ -30,3 +30,26 @@
     margin-top: 18px;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 600px;
+    min-width: 0;
+    padding: 15px 18px;
+
+    .title{
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .text{
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .btn{
+      margin-top: 18px;
+    }
+  }
+}

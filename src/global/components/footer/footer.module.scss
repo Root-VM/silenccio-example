@@ -66,3 +66,28 @@
     }
   }
 }
+
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    flex-direction: column;
+    padding: 17px 20px;
+
+    .items {
+      margin-bottom: 13px;
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 245px;
+
+      li span{
+        margin-right: 0;
+      }
+    }
+  }
+}

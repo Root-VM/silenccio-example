@@ -3,3 +3,19 @@
   grid-gap: 20px;
   grid-template-columns: auto 414px;
 }
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 39px;
+
+    >div:last-child{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

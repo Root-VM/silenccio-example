@@ -9,6 +9,7 @@
   position: relative;
 
   h2 {
+    font-family: var(--chakra-fonts-gergia_code);
     color: #333333;
     font-weight: 700;
     font-size: 40px;
@@ -70,5 +71,37 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .wrap{
+    width: 100%;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 600px;
+    min-width: 0;
+    padding: 20px 18px;
+    height: fit-content;
+
+    h2 {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 24px;
+    }
+
+    .cancel {
+      display: none;
+    }
+
+    .group {
+      display: grid;
+      grid-gap: 15px;
+
+    }
   }
 }

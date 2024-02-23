@@ -28,3 +28,40 @@
     color: #333333;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .wrap{
+    h1{
+      font-size: 42px;
+      line-height: 52px;
+      margin-bottom: 22px;
+    }
+  }
+}
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 100%;
+    .title{
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    h1{
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 6px;
+    }
+
+    .text{
+      font-family: var(--chakra-fonts-source_code);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #333333;
+      margin-bottom: 28px;
+    }
+  }
+}

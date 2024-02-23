@@ -9,10 +9,11 @@
   height: 100%;
 
   h2 {
+    font-family: var(--chakra-fonts-gergia_code);
     color: #333333;
     font-weight: 700;
-    font-size: 25px;
-    line-height: 29px;
+    font-size: 40px;
+    line-height: 48px;
     margin-bottom: 8px;
   }
 
@@ -168,6 +169,129 @@
 
     img{
       margin-left: 4px;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .wrap{
+    min-width: 300px;
+    height: fit-content;
+
+    .mainBlock {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 42px;
+
+      >img{
+        height: 120px;
+        width: auto;
+        margin-right: 27px;
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 600px;
+    min-width: 0;
+    padding: 20px 18px;
+    height: fit-content;
+
+    h2 {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 19px;
+    }
+
+    .mainBlock {
+      margin-bottom: 30px;
+      align-items: flex-start;
+
+      >img{
+        height: 53px;
+        margin-right: 13px;
+      }
+
+      .texts {
+        p{
+          color: #333;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 10px;
+        }
+        span{
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-bottom: 38px;
+      grid-gap: 17px;
+
+      .item{
+        flex-direction: row;
+        height: 50px;
+
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 60px;
+
+        .circle {
+          height: 36px;
+          width: 36px;
+          margin-bottom: 0;
+          margin-right: 5px;
+        }
+      }
+    }
+
+
+    .acBlock {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .texts{
+        flex-direction: column;
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          margin-right: 0;
+        }
+      }
+      button {
+        margin-left: 0;
+        margin-right: auto;
+        margin-top: 15px;
+      }
+    }
+
+    .accordion {
+      margin-left: 31px;
+
+      .icon{
+        left: -31px;
+        width: 31px;
+      }
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+
+      img{
+        margin-left: 4px;
+      }
     }
   }
 }

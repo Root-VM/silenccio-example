@@ -79,3 +79,11 @@
     line-height: 16px;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 450px;
+    min-width: auto;
+    padding: 20px;
+  }
+}

@@ -8,6 +8,7 @@
   height: 100%;
 
   h2 {
+    font-family: var(--chakra-fonts-gergia_code);
     color: #333333;
     font-weight: 700;
     font-size: 40px;
@@ -101,6 +102,76 @@
 
     img{
       margin-left: 4px;
+    }
+  }
+}
+@media screen and (max-width: 1300px) {
+  .wrap{
+    width: 100%;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 600px;
+    min-width: 0;
+    padding: 20px 18px;
+    height: fit-content;
+
+    h2 {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 23px;
+      align-items: flex-end;
+      justify-content: flex-start;
+
+      span{
+        margin-left: 5px;
+      }
+    }
+
+    .accordionTitles {
+      p{
+
+        &:first-child{
+          width: 112px;
+        }
+      }
+    }
+
+    .accordion {
+      .accordionBtn {
+        align-items: flex-start;
+        p{
+          text-align: left;
+          font-size: 14px;
+
+          &:first-child{
+            width: 66px;
+            min-width: 66px;
+            margin-right: 5px;
+          }
+          &:nth-child(2){
+            min-width: 35px;
+            margin-right: 4px;
+          }
+          &:nth-child(3){
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+
+      img{
+        margin-left: 4px;
+      }
     }
   }
 }

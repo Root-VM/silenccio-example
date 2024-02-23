@@ -1,10 +1,10 @@
 import {FC, useState} from "react";
-
-
-import css from "./profile-form.module.scss";
 import cn from "classnames";
 import {Input} from "@chakra-ui/react";
 import Dropdown from "react-dropdown";
+
+import css from "./profile-form.module.scss";
+
 const ProfileForm: FC = () => {
     const [activeItem, setActiveItem] = useState(1);
 

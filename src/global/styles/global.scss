@@ -447,7 +447,7 @@ h4 {
   &.simple {
     .chakra-accordion__button {
       padding-left: 4px;
-      padding-right: 4px;
+      padding-right: 27px;
     }
     .chakra-accordion__panel {
       padding-left: 4px;
@@ -494,3 +494,24 @@ h4 {
     padding-bottom: 18px;
   }
 }
+
+.chakra-slide .chakra-modal__close-btn{
+  &:focus-visible, &[data-focus-visible] {
+    box-shadow: none;
+    --close-button-bg: none;
+  }
+}
+
+.chakra-input__group{
+  .chakra-input__right-element{
+    width: 45px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+      transition: 0.3s;
+      opacity: 0.8;
+    }
+  }
+}
+

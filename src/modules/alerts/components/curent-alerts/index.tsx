@@ -41,7 +41,7 @@ const CurentAlerts: FC = () => {
                 <AccordionItem>
                     <AccordionButton className={css.accordionBtn}>
                         <p>27.11.23</p>
-                        <p>NEU</p>
+                        <p></p>
                         <p>Cisco Schwachstelle</p>
                     </AccordionButton>
                     <AccordionPanel>
@@ -64,7 +64,7 @@ const CurentAlerts: FC = () => {
                 <AccordionItem>
                     <AccordionButton className={css.accordionBtn}>
                         <p>27.11.23</p>
-                        <p>NEU</p>
+                        <p></p>
                         <p>Cisco Schwachstelle</p>
                     </AccordionButton>
                     <AccordionPanel>

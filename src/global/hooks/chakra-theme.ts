@@ -10,6 +10,6 @@ export const chakraTheme = extendTheme({
 },
     fonts: {
         source_code: "Source Sans 3",
-        gergia_code: "Noto Sans Georgian",
+        gergia_code: "Noto Serif",
     }
 })
