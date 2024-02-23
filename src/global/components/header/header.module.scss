@@ -133,6 +133,7 @@
         border: none;
       }
       .chakra-modal__body {
+        background: #fff;
         display: flex;
         flex-direction: column;
         padding: 16px 0 0;
@@ -169,6 +170,11 @@
         &.disabled {
             color: #999999;
           background: #FAFAFA;
+        }
+
+        &:hover {
+          transition: 0.3s;
+          background: var(--chakra-colors-blackAlpha-50);
         }
       }
     }
