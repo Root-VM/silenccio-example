@@ -1,0 +1,11 @@
+.line{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+
+  .drop {
+    width: 97px;
+    margin-right: 4px;
+  }
+}

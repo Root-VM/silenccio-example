@@ -1,7 +1,7 @@
 .wrap{
   width: 100%;
   min-width: 800px;
-  padding: 24px 22px;
+  padding: 20px 18px;
   border-radius: 4px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   background: #fff;
@@ -32,10 +32,10 @@
     line-height: 24px;
     margin-bottom: 16px;
 
-    a{
+    >a{
       color: #00008F;
       text-decoration: underline;
-      margin: 0 4px;
+      //margin: 0 4px;
     }
   }
 
@@ -72,6 +72,10 @@
     font-size: 13px;
     line-height: 16px;
   }
+
+  .btnLast {
+    margin-top: 8px;
+  }
 }
 
 @media screen and (max-width: 1300px) {
@@ -102,6 +106,10 @@
       display: grid;
       grid-gap: 15px;
 
+    }
+
+    .btnLast {
+      margin-top: 30px;
     }
   }
 }

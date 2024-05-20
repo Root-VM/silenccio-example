@@ -8,6 +8,15 @@
   background: #fff;
   height: 100%;
 
+  .cursor {
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+  }
   h2 {
     font-family: var(--chakra-fonts-gergia_code);
     color: #333333;
@@ -15,6 +24,17 @@
     font-size: 40px;
     line-height: 48px;
     margin-bottom: 8px;
+  }
+
+  h3 {
+    color: #333;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.01px;
+    margin-bottom: 15px;
   }
 
   .mainBlock {
@@ -65,6 +85,25 @@
       border-radius: 4px;
       height: 141px;
 
+      &.red {
+        background: #C91432;
+      }
+      &.yellow{
+        background: #BC9D45;
+      }
+      &.green{
+        background: #169E3E;
+      }
+
+      &.grey {
+        opacity: 0.3;
+        .circle {
+          img {
+            filter: invert(34%) sepia(5%) saturate(0%) hue-rotate(201deg) brightness(97%) contrast(91%);
+          }
+        }
+      }
+
       .circle {
         height: 57px;
         width: 57px;
@@ -100,6 +139,8 @@
         line-height: 18px;
         letter-spacing: 1px;
         text-transform: uppercase;
+        text-align: center;
+        padding: 0 5px;
       }
     }
   }
@@ -137,7 +178,27 @@
   }
 
   .accordion {
-    margin-left: 39px;
+    position: relative;
+    //margin-left: 39px;
+
+    &.notPaid {
+      min-height: 100px;
+    }
+
+    .bluredWrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-radius: 6px;
+      height: calc(100% + 74px);
+      z-index: 11;
+      background: #fff9;
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .icon{
       position: absolute;
@@ -168,7 +229,51 @@
     margin-left: auto;
 
     img{
-      margin-left: 4px;
+      margin-left: 13px;
+    }
+  }
+
+  .accordionContent {
+    margin-top: 19px;
+    margin-bottom: 0;
+
+    :global {
+      .chakra-accordion__item {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .popover {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .popoverContent {
+    text-align: left;
+    text-transform: none;
+  }
+
+  :global {
+    //.chakra-accordion__button {
+    //  display: flex;
+    //  flex-direction: column;
+    //  align-items: baseline;
+    //}
+  }
+
+  .aBtn {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+
+    span {
+      font-weight: 400;
+      color: #333;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02px;
+      text-transform: none;
     }
   }
 }
@@ -196,10 +301,12 @@
 
 @media screen and (max-width: 960px) {
   .wrap{
+    overflow: hidden;
     max-width: 600px;
     min-width: 0;
     padding: 20px 18px;
     height: fit-content;
+    position: relative;
 
     h2 {
       font-size: 25px;
@@ -277,6 +384,26 @@
 
     .accordion {
       margin-left: 31px;
+      position: static;
+
+      .bluredWrap {
+        position: absolute;
+        top: 510px;
+        left: 0;
+        width: 100%;
+        border-radius: 6px;
+        height: calc(100% - 345px);
+        z-index: 11;
+        background: #fff9;
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >div {
+          margin-bottom: 80%;
+        }
+      }
 
       .icon{
         left: -31px;

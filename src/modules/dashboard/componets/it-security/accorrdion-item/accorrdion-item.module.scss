@@ -1,0 +1,195 @@
+.accordion {
+  position: relative;
+  margin-left: 39px;
+
+  .titleBntn {
+    text-align: left;
+  }
+
+  .title_p {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      text-transform: none;
+      font-weight: 400;
+      color: #333;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02px;
+    }
+  }
+
+  :global {
+    .chakra-popover__body {
+      text-transform: none;
+      text-align: left;
+      border: none;
+    }
+
+    .myPopover span {
+      color: white;
+    }
+  }
+  .yellow, .red{
+    >img {
+      cursor: pointer;
+    }
+    :global{
+      .myPopover:after{
+        content: none;
+      }
+    }
+  }
+  .yellow .red {
+    display: none;
+  }
+  .red .yellow {
+    display: none;
+  }
+
+  .bluredWrap {
+    position: absolute;
+    top: 0;
+    left: -39px;
+    width: calc(100% + 39px);
+    height: calc(100% + 74px);
+    z-index: 11;
+    background: #fff9;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon{
+    position: absolute;
+    left: -39px;
+    top: 0;
+    width: 39px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 10px;
+
+    &.red {
+      background: #C91432;
+    }
+    &.yellow{
+      background: #BC9D45;
+    }
+    &.green{
+      background: #169E3E;
+    }
+  }
+}
+
+.detail_b {
+  span ~ span {
+    border-top: 1px solid #CCCCCC;
+    padding: 5px 0;
+  }
+  span:nth-child(3){
+    margin-top: 5px;
+  }
+
+}
+
+.accordionContent {
+  margin-top: 19px;
+  margin-bottom: 0;
+
+  :global {
+    .chakra-accordion__item {
+      border-bottom: none;
+    }
+  }
+}
+
+.acBlock {
+  display: flex;
+  align-items: center;
+
+  .texts{
+    display: flex;
+    flex-direction: column;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      margin-right: 20px;
+      margin-bottom: 10px;
+
+      p{
+        color: #333;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      span{
+        color: #333;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+  button {
+    margin-left: auto;
+    white-space: nowrap;
+  }
+}
+
+.aBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start!important;
+
+  //span {
+  //  font-weight: 400;
+  //  color: #333;
+  //  font-size: 16px;
+  //  line-height: 24px;
+  //  letter-spacing: 0.02px;
+  //  text-transform: none;
+  //}
+}
+
+.popover {
+  margin-left: auto;
+  margin-right: 20px;
+}
+@media screen and (max-width: 960px) {
+  .accordion {
+    margin-left: 0;
+
+    .icon{
+      left: -31px;
+      width: 31px;
+      height: 100%;
+    }
+  }
+
+  .acBlock {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .texts{
+      flex-direction: column;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+      }
+    }
+    button {
+      margin-left: 0;
+      margin-right: auto;
+      margin-top: 15px;
+    }
+  }
+}

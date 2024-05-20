@@ -1,110 +1,264 @@
-import {FC} from "react";
+import {FC, useState} from "react";
 import cn from "classnames";
 
 import css from "./onepager-content.module.scss";
 import {Accordion, AccordionButton, AccordionItem, AccordionPanel} from "@chakra-ui/react";
+import {useTranslations} from "use-intl";
+import {useRouter} from "next/router";
+import {getRegistrationUrl} from "@/global/helpers/url-generator";
 
 const OnePagerContent: FC = () => {
+    const t = useTranslations('ONEPAGER_PAGE');
+    const [showMore, setShowMore] = useState(false);
+    const router = useRouter();
 
     return (
         <div className={css.wrap}>
             <section className={css.main}>
-                <p className={css.text}>Ist Ihre IT-Security wirklich sicher?</p>
-                <h1>Schwachstellen-Scan <br/>  24/7, günstig, schnell gestartet</h1>
-                <button className={cn('myBtn', 'orange')}>SCNHELLTEST STARTEN</button>
+                <p className={css.text}>{t('title')}</p>
+                <h1>{t('text_b')} <br/>  {t('text')}</h1>
             </section>
 
             <section className={css.info}>
-                <h2>Cyberangriffe passieren täglich - auch kleineren Unternehmen</h2>
-                <p className={css.text}>Wir scannen Ihre IT auf Schwachstellenund informieren Sie zeitnah, verständlich und mit klaren Anweisungen über dienächsten Schritte:</p>
+                <h2>{t('info_title')}</h2>
+                <p className={css.text}>{t('info_text')}</p>
                 <ul>
                     <li>
                         <img src="/img/icons/check.svg" alt="check"/>
-                        <p>Risiken überwachen undreduzieren</p>
+                        <p>{t('list_1')}</p>
                     </li>
                     <li>
                         <img src="/img/icons/check.svg" alt="check"/>
-                        <p>Zeitnah Gegenmassnahmenergreifen</p>
+                        <p>{t('list_2')}</p>
                     </li>
                     <li>
                         <img src="/img/icons/check.svg" alt="check"/>
-                        <p>Einfalltore für Angreiferschliessen</p>
+                        <p>{t('list_3')}</p>
                     </li>
                 </ul>
-                <button className={cn('myBtn', css.btn)}>Schnelltest starten</button>
+                <button onClick={() => router.push(getRegistrationUrl())}
+                        className={cn('myBtn', css.btn)}>{t('list_btn')}</button>
             </section>
 
             <section className={css.cards}>
                 <div className={css.card}>
-                    <p className={css.title}>Jedes 3. CH-KMU bereits angegriffen</p>
-                    <p className={css.text}>Doch nur jedes siebte KMU siehtCyberangriffe als Gefahr für sich. 40% aller Cyberattacken in der Schweizzielen auf KMU ab. …</p>
-                    <a href="#">Mehr Informationen</a>
+                    <p className={css.title}>{t('card_1_title')}</p>
+                    <p className={css.text}>{t('card_1_text')}</p>
+                    <a href="#">{t('card_1_link')}</a>
                 </div>
                 <div className={css.card}>
-                    <p className={css.title}>Auf KMU angepasste Lösung</p>
-                    <p className={css.text}>Wir scannen Ihre IT-Infrastrukturauf die in KMUs gängigsten Schwachstellen und zeigen ihnen Optimierungspotential auf…</p>
-                    <a href="#">Mehr Informationen</a>
+                    <p className={css.title}>{t('card_2_title')}</p>
+                    <p className={css.text}>{t('card_2_text')}</p>
+                    <a href="#">{t('card_2_link')}</a>
                 </div>
                 <div className={css.card}>
-                    <p className={css.title}>Schwachstellen schliessen bevor die Angreifer die Lücke nutzen</p>
+                    <p className={css.title}>{t('card_3_title')}</p>
 
-                    <ul>
-                        <li>24/7 Scan - Software für Grossunternehmen für Sie als KMU</li>
-                        <li>automatische Benachrichtigung</li>
-                        <li>verständliche Informationen -auch für nicht IT-Nerds</li>
-                        <li>klare Handlungsanweisungen fürdie für die IT Sicherheit zuständige Person</li>
-                        <li>Pushnachrichten zuSicherheitslücken und Betrugsmaschen</li>
-                    </ul>
-                    <a href="#">Mehr Informationen</a>
+                    <p className={css.text}>{t('card_3_text')}</p>
+                    <a href="#">{t('card_3_link')}</a>
                 </div>
             </section>
 
             <section className={css.content}>
-                <h2>Schwachstellen-Scan im Überblick</h2>
-                <p className={css.text}>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut laboreet dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores etea rebum. Stet clitakasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Loremipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmodtempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duodolores et ea rebum. Stetclita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmodtempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duodolores et ea rebum. Stetclita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sitamet.
-                    Duis autem vel eum iriure dolor in hendrerit invulputate velit esse molestie consequat, vel illum dolore eu feugiat nullafacilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesentluptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsumdolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismodtincidunt ut laoreet dolore magna aliquam erat volutpat.
-                    Ut wisi enim ad minim veniam, quis nostrudexerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodoconsequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit essemolestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros etaccumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenitaugue duis dolore te feugait nulla facilisi.  </p>
+                <h2>{t('content_title')}</h2>
+                <p className={css.text}>{t('content_text')}</p>
+                <p className={css.text}>
+                    <i>{t('content_network_title')}</i> <br/>
+                    {t('content_network_text')}
+                </p>
+                <p className={css.text}>
+                    <strong>{t('content_network_benefits_bold')}</strong>
+                    {t('content_network_benefits')}
+                </p>
+                <p className={css.text}>
+                    <i>{t('content_WebsiteEmail_title')}</i> <br/>
+                    {t('content_WebsiteEmail_text')}
+                </p>
+                <p className={css.text}>
+                    <strong>{t('content_WebsiteEmail_benefits_bold')}</strong>
+                    {t('content_WebsiteEmail_benefits')}
+                </p>
+                <p className={css.text}>
+                    <i>{t('content_DataTheft_title')}</i> <br/>
+                    {t('content_DataTheft_text')}
+                </p>
+                <p className={css.text}>
+                    <strong>{t('content_DataTheft_benefits_bold')}</strong>
+                    {t('content_DataTheft_benefits')}
+                </p>
+                <p className={css.text}>
+                    <i>{t('content_Phishing_title')}</i> <br/>
+                    {t('content_Phishing_text')}
+                </p>
+                <p className={cn(css.text, css.last)}>
+                    <strong>{t('content_Phishing_benefits_bold')}</strong>
+                    {t('content_Phishing_benefits')}
+                </p>
 
                 <div className={css.box}>
-                    <button className={cn('myBtn', css.btn)}>Jetzt starten</button>
+                    <button onClick={() => router.push(getRegistrationUrl())}
+                            className={cn('myBtn', css.btn)}>{t('content_btn')}</button>
 
-                    <h2 className={css.lastTitle}>FAQ</h2>
+                    <h2 className={css.lastTitle}>{t('faq')}</h2>
 
 
-                    <Accordion className={cn('myAccordion', 'simple', css.accordion)}>
+                    <Accordion className={cn('myAccordion', 'simple', css.accordion)} allowToggle>
                         <AccordionItem>
                             <AccordionButton className={css.aBtn}>
-                                Welche Angaben muss ich machen, um den Scan zu starten?
+                                {t('ac_1_title')}
                             </AccordionButton>
                             <AccordionPanel>
                                 <p className={css.aText}>
-                                    Die Kosten für den Scan belaufensich jährlich auf CHF XY.- Sie können die Rechnung einfachund bequem per Kreditkarte zahlen.
+                                    {t('ac_1_text')}
                                 </p>
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
                             <AccordionButton className={css.aBtn}>
-                                Wie hoch sind die Kosten fürden Schwachstellen Scan?
+                                {t('ac_2_title')}
                             </AccordionButton>
                             <AccordionPanel>
                                 <p className={css.aText}>
-                                    Die Kosten für den Scan belaufensich jährlich auf CHF XY.- Sie können die Rechnung einfachund bequem per Kreditkarte zahlen.
+                                    {t('ac_2_text')}
                                 </p>
+                                <ul>
+                                    <li>{t('ac_2_l1')}</li>
+                                    <li>{t('ac_2_l2')}</li>
+                                    <li>{t('ac_2_l3')}</li>
+                                    <li>{t('ac_2_l4')}</li>
+                                    <li>{t('ac_2_l5')}</li>
+                                </ul>
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
                             <AccordionButton className={css.aBtn}>
-                                Mein Unternehmen hat nur 3Mitarbeiter - kann ich den Scan dennoch nutzen?
+                                {t('ac_3_title')}
                             </AccordionButton>
                             <AccordionPanel>
                                 <p className={css.aText}>
-                                    Die Kosten für den Scan belaufensich jährlich auf CHF XY.- Sie können die Rechnung einfachund bequem per Kreditkarte zahlen.
+                                    {t('ac_3_text')}
                                 </p>
+                                <ul>
+                                    <li>{t('ac_3_l1')}</li>
+                                    <li>{t('ac_3_l2')}</li>
+                                    <li>{t('ac_3_l3')}</li>
+                                </ul>
                             </AccordionPanel>
                         </AccordionItem>
+                        {
+                            showMore &&
+                            <>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_4_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_4_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_5_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_5_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_6_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_6_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_7_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_7_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_8_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_8_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_9_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_9_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_10_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_10_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_11_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_11_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_12_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_12_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionButton className={css.aBtn}>
+                                        {t('ac_13_title')}
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <p className={css.aText}>
+                                            {t('ac_13_text')}
+                                        </p>
+                                    </AccordionPanel>
+                                </AccordionItem>
+                            </>
+                        }
                     </Accordion>
 
-                    <button className={cn('myBtn', 'white')}>mehr anzeigen</button>
+                    {
+                        !showMore &&
+                        <button onClick={() => setShowMore(true)}
+                                className={cn('myBtn', 'white')}>
+                            {t('ac_btn')}
+                        </button>
+                    }
                 </div>
 
             </section>

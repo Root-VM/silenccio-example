@@ -1,0 +1,38 @@
+.wrap {
+  max-width: 800px!important;
+
+  iframe {
+    width: 100%;
+  }
+
+  .arrowL {
+    position: absolute;
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+    right: -42px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+  }
+  .arrowR {
+    position: absolute;
+    top: 50%;
+    transform: translateX(0) translateY(-50%) rotate(-180deg);
+    left: -42px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+  }
+}

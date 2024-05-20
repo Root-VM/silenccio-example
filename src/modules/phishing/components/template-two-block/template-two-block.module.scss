@@ -1,0 +1,139 @@
+.wrap{
+  width: 100%;
+  min-width: 800px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  background: #fff;
+  height: 100%;
+  position: relative;
+  padding: 20px 18px;
+
+  h2 {
+    font-family: var(--chakra-fonts-gergia_code);
+    color: #333333;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 28px;
+  }
+
+  .title {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px; /* 116% */
+    letter-spacing: -0.01px;
+    color: #333;
+    margin-bottom: 17px;
+  }
+
+  .text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02px;
+    margin-bottom: 36px;
+  }
+
+  .table {
+    margin-bottom: 18px;
+
+    tr td {
+      &:last-child {
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          > img{
+              transition: 0.3s;
+              cursor: pointer;
+            margin-left: 18px;
+
+            &:hover{
+              transition: 0.3s;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn {
+    margin-bottom: 36px;
+  }
+
+  .inputGroup {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(213px, 213px));
+    grid-gap: 16px;
+    margin-bottom: 17px;
+  }
+
+  .group {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 670px;
+
+    .importantText{
+      color: #333;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+  }
+
+  .btnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .wrap{
+    width: 100%;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 600px;
+    min-width: 0;
+    padding: 20px 18px;
+    height: fit-content;
+
+    h2 {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-size: 18px;
+    }
+
+    .inputGroup {
+      display: grid;
+      grid-template-columns: minmax(213px, 213px);
+      grid-gap: 0;
+      margin-bottom: 0px;
+    }
+
+    .group {
+      margin-bottom: 40px;
+      flex-direction: column-reverse;
+
+      .importantText{
+        margin-bottom: 10px;
+      }
+
+    }
+  }
+}

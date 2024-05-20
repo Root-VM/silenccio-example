@@ -17,6 +17,50 @@
     margin-bottom: 28px;
   }
 
+  .titleC {
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+  }
+
+  .inputWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    >div {
+      margin-left: 5px;
+      display: flex;
+
+      input{
+        margin-bottom: 0;
+        max-width: 110px;
+      }
+
+      img{
+        cursor: pointer;
+        margin-left: 8px;
+        filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(6002%) hue-rotate(243deg) brightness(55%) contrast(119%);
+      }
+    }
+  }
+
+  .groupTitle {
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 26px;
+    font-size: 40px;
+    font-style: normal;
+    line-height: 48px;
+  }
+
+  .group{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 377px);
+    grid-gap: 40px 110px;
+  }
+
   .title {
     color: #333333;
     font-weight: 600;
@@ -47,6 +91,7 @@
   }
 
   .phoneLine{
+    position: relative;
     max-width: 411px;
     display: flex;
     align-items: flex-start;
@@ -64,6 +109,12 @@
   .btn{
     text-transform: uppercase;
     margin-bottom: 16px;
+
+    img{
+      filter: brightness(0) saturate(100%) invert(14%) sepia(63%) saturate(4422%) hue-rotate(237deg) brightness(71%) contrast(135%);
+      height: 16px;
+      margin-left: 8px!important;
+    }
   }
 
   .importantText{
@@ -103,56 +154,13 @@
     width: 100%;
     overflow: hidden;
     display: flex;
-    margin: 34px 22px;
+    flex-direction: column;
+    padding: 20px 18px;
 
-    &.showFirst{
-      >form:first-child {
-          margin-left: 0;
-      }
-    }
-
-    >form {
+    >div {
       transition: 0.3s;
       width: 100%;
-      max-width: calc(100% - 44px);
-      min-width: calc(100% - 44px);
-
-      &:first-child {
-        margin-left: calc(-100%);
-        margin-right: 50px;
-      }
     }
-  }
-
-  .inputGroup {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-
-    :global {
-      .Dropdown-root {
-        max-width: 411px;
-      }
-    }
-    input{
-      max-width: 411px;
-    }
-
-    img{
-      cursor: pointer;
-      transition: 0.3s;
-      margin-left: 12px;
-      margin-top: 6px;
-
-      &:hover {
-        transition: 0.3s;
-        opacity: 0.7;
-      }
-    }
-  }
-
-  .drop {
-    width: 100%;
   }
 
   .cards {
@@ -161,6 +169,7 @@
     grid-gap: 39px;
 
     .card{
+      max-width: 414px;
       display: flex;
       width: 100%;
       flex-direction: column;
@@ -180,17 +189,33 @@
 
       .line{
         display: flex;
-        justify-content: space-between;
-        max-width: 250px;
-        color: #333;
-        font-weight: 600;
-        line-height: 24px;
-        font-size: 16px;
-        letter-spacing: -0.01px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-width: 345px;
         margin-bottom: 4px;
 
+        p{
+          margin: 0;
+          color: #333;
+          font-weight: 600;
+          line-height: 24px;
+          font-size: 16px;
+          letter-spacing: -0.01px;
+          margin-right: 20px;
+          min-width: 210px;
+          max-width: 210px;
+        }
+
         span{
+          color: #333;
+          line-height: 24px;
+          font-size: 16px;
+          letter-spacing: -0.01px;
           font-weight: 400;
+        }
+
+        >span{
+          margin-top: auto;
         }
       }
 
@@ -201,6 +226,23 @@
         font-size: 16px;
         letter-spacing: 0.02px;
         margin: 16px 0;
+
+      }
+    }
+  }
+
+  .btnGroup {
+    width: calc(100% - 40px);
+    justify-content: space-between;
+    display: flex;
+
+    .btn{
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+
+      img{
+        margin-left: 3px;
       }
     }
   }
@@ -224,6 +266,12 @@
       font-size: 25px;
       line-height: 29px;
       margin-bottom: 24px;
+    }
+
+    .groupTitle {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 10px;
     }
 
     .cancel {
@@ -261,6 +309,13 @@
 
       .card {
           padding: 27px 13px;
+
+        .line {
+          justify-content: space-between;
+          p{
+            min-width: auto;
+          }
+        }
       }
     }
   }

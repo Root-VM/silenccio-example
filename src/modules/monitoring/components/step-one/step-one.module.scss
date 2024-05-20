@@ -1,7 +1,7 @@
 .wrap{
   width: 100%;
   min-width: 800px;
-  padding: 24px 22px;
+  padding: 20px 18px;
   border-radius: 4px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   background: #fff;
@@ -47,6 +47,7 @@
   }
 
   .phoneLine{
+    position: relative;
     max-width: 411px;
     display: flex;
     align-items: flex-start;
@@ -66,7 +67,15 @@
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-    max-width: 411px;
+    max-width: 425px;
+
+    button{
+      margin-right: 10px;
+    }
+
+    button:nth-child(2){
+      margin-right: auto;
+    }
   }
 
   .importantText{
@@ -74,6 +83,23 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
+  }
+
+  .phoneLine{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    .drop {
+      width: 97px;
+      margin-right: 4px;
+    }
+  }
+
+  :global {
+    .formErrorText:nth-last-child(2) {
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -99,6 +125,14 @@
 
     .cancel {
       display: none;
+    }
+
+    .group {
+      flex-direction: column;
+
+      button {
+        margin-bottom: 10px;
+      }
     }
   }
 }

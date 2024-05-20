@@ -1,0 +1,16 @@
+.wrap{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: minmax(auto, 700px) minmax(auto, 362px);
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 0;
+  }
+}

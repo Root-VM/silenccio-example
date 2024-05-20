@@ -1,0 +1,29 @@
+.line{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+
+  .drop {
+    width: 97px;
+    margin-right: 4px;
+  }
+}
+
+.wrap {
+  margin-top: -10px;
+  //margin-bottom: -15px;
+
+  >div >p {
+    font-weight: 700!important;
+  }
+
+  :global {
+    .notEdit {
+      margin-bottom: -15px;
+      & ~ p {
+        display: none;
+      }
+    }
+  }
+}

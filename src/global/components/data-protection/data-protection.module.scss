@@ -1,0 +1,19 @@
+.wrap{
+  padding: 20px 40px;
+  display: flex;
+
+  p{
+    //display: flex;
+    //flex-direction: column;
+    margin-bottom: 15px!important;
+
+    b{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: -15px !important;
+    }
+  }
+  ul {
+    margin-left: 15px;
+  }
+}

@@ -1,0 +1,147 @@
+.wrap {
+  max-width: 679px!important;
+
+  h4{
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px; /* 116% */
+    letter-spacing: -0.01px;
+    margin-bottom: 19px;
+    color: #333;
+  }
+
+  .btnC {
+    white-space: nowrap;
+  }
+  .title {
+    color: #333;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .text{
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02px;
+    color: #333;
+    margin-bottom: 25px;
+  }
+
+  .importantText{
+    color: #333;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .radio {
+    :global {
+      .chakra-radio{
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .group {
+    display: flex;
+    width: 100%;
+
+    &.new{
+      >div:first-child {
+        max-width: 153px;
+        width: 100%;
+      }
+      >div:last-child {
+        max-width: 100%;
+      }
+    }
+
+    >div{
+      width: 100%;
+      input{
+        width: 100%;
+      }
+    }
+    >div:first-child {
+        margin-right: 20px;
+    }
+    >div:last-child {
+        max-width: 153px;
+        width: 100%;
+    }
+  }
+
+  .btnGroup{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .groupLine {
+    display: flex;
+    justify-content: space-between;
+
+    &.activeCoupon {
+      .text {
+        margin-bottom: 3px;
+      }
+      div:first-child div:first-child .text {
+        text-decoration: line-through;
+      }
+
+      >div:first-child >p {
+        color: #00008f;
+      }
+    }
+
+    >div:first-child >p:first-child{
+        margin-bottom: 6px;
+    }
+
+    .inputWrap {
+      margin-top: 6px;
+      display: flex;
+
+      button {
+        max-height: 24px;
+        margin-top: 7px;
+        margin-left: 19px;
+      }
+    }
+  }
+}
+
+@media(max-width: 991px) {
+  .wrap {
+    .groupLine {
+      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
+
+      >div:first-child >p:first-child{
+        margin-bottom: 6px;
+      }
+      >div:first-child >p:last-child{
+        margin-bottom: 6px;
+      }
+
+      .inputWrap {
+        margin-top: 6px;
+        display: flex;
+
+        button {
+          max-height: 24px;
+          margin-top: 4px;
+          margin-left: 19px;
+        }
+      }
+    }
+  }
+}

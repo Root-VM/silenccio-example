@@ -3,6 +3,12 @@
   justify-content: space-between;
   width: 100%;
 
+  &.hideNav {
+    .logo{
+      margin-top: -5px;
+    }
+  }
+
   .tabs {
     width: 100%;
 
@@ -22,6 +28,9 @@
   .logo {
     height: 48px;
     width: auto;
+    margin-left: 4px;
+    margin-top: -9px;
+    cursor: pointer;
   }
 
   .content {
@@ -54,6 +63,17 @@
 
     &.active, &:hover {
       border-bottom-color: #F07662;
+    }
+
+    &.disabled {
+      user-select: none!important;
+      opacity: 0.5;
+      color: #333;
+      cursor: not-allowed;
+
+      &.active, &:hover {
+        border-bottom-color: transparent;
+      }
     }
   }
 }
@@ -92,6 +112,15 @@
       transition: 0.3s;
     }
   }
+  .drag {
+    :global {
+      .logoutBtn {
+        width: 100%;
+        min-height: 45px;
+        margin-top: -27px;
+      }
+    }
+  }
   .mBtn {
     width: calc(100% - 64px);
     text-transform: uppercase;
@@ -110,6 +139,7 @@
       .logo {
         height: 36px;
         width: auto;
+        margin-top: 0;
       }
 
       .burger {

@@ -1,0 +1,82 @@
+.wrap{
+  width: 100%;
+  max-width: 684px;
+
+  .title{
+    font-family: var(--chakra-fonts-source_code);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    color: #333333;
+  }
+
+  h1{
+    font-family: var(--chakra-fonts-gergia_code);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    color: #333333;
+    margin-bottom: 32px;
+  }
+
+  .text{
+    font-family: var(--chakra-fonts-source_code);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #333333;
+    margin-bottom: 5px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 45px;
+
+    li{
+      font-family: var(--chakra-fonts-source_code);
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 30px;
+      color: #333333;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrap{
+    h1{
+      font-size: 42px;
+      line-height: 52px;
+      margin-bottom: 22px;
+    }
+  }
+}
+@media screen and (max-width: 960px) {
+  .wrap{
+    max-width: 100%;
+    .title{
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    h1{
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 6px;
+    }
+
+    .text{
+      font-family: var(--chakra-fonts-source_code);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #333333;
+      margin-bottom: 28px;
+    }
+  }
+}

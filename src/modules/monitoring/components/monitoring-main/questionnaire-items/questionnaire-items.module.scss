@@ -1,0 +1,56 @@
+
+.inputGroup {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+
+  :global {
+    .Dropdown-root {
+      max-width: 411px;
+    }
+  }
+  input{
+    max-width: 411px;
+  }
+
+  img{
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 12px;
+    margin-top: 6px;
+
+    &:hover {
+      transition: 0.3s;
+      opacity: 0.7;
+    }
+  }
+}
+
+.d{
+  width: 100%;
+}
+
+.drop {
+  width: 100%;
+}
+
+
+.line{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+
+  .drop {
+    width: 97px;
+    margin-right: 4px;
+  }
+}
+
+.hide {
+  opacity: 0;
+  height: 0;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+}

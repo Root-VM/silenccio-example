@@ -1,0 +1,122 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(157px, 1fr));
+  grid-gap: 21px;
+  margin-bottom: 45px;
+
+  .card {
+    border-radius: 4px;
+    background: #FFF;
+    min-height: 141px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 0;
+
+    &.active {
+      &.red {
+        .circle {
+          background: #C91432;
+
+          &:before {
+            border: 1px solid #C91432;
+          }
+        }
+      }
+      &.yellow{
+        .circle {
+          background: #BC9D45;
+
+          &:before {
+            border: 1px solid #BC9D45;
+          }
+        }
+      }
+      &.green {
+        .circle {
+          background: #169E3E;
+
+          &:before {
+            border: 1px solid #169E3E;
+          }
+        }
+      }
+    }
+
+    >p {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 18px; /* 128.571% */
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #333;
+    }
+
+    .circle {
+      margin: auto;
+      width: 57px;
+      height: 57px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 57px;
+      background: #CCCCCC;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        border: 1px solid #CCCCCC;
+        border-radius: 50%;
+      }
+
+      p{
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: -0.01px;
+        color: #FFF;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(157px, 1fr));
+    grid-gap: 21px;
+    margin-bottom: 40px;
+
+    .card {
+      padding: 5px 0;
+      flex-direction: row;
+      min-height: 50px;
+
+      .circle {
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+        min-height: 36px;
+        border-radius: 36px;
+        margin: 0 10px 0 15%;
+
+        p{
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 28px
+        }
+      }
+    }
+  }
+}

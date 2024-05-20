@@ -2,10 +2,10 @@ import {NextPage} from "next";
 import MailTemplate from "@/global/components/templates/mail-template/mail-template";
 import WarningsBlock from "../../../global/components/warnings-block";
 import EmployeesTestBlock from "../../../global/components/employees-test-block";
-import ItScanBlock from "../../../global/components/it-scan-block";
 import CyberInsuranceBlock from "../../../global/components/cyber-insurance-block";
 import StepFour from "@/modules/monitoring/components/step-four";
-import MainWrap from "@/global/components/templates/mail-template/main-wrap/registration-wrap";
+import MainWrap from "@/global/components/templates/mail-template/main-wrap/main-wrap";
+import isAuth from "@/global/helpers/guard";
 
 const MonitoringPage: NextPage = () => {
 
@@ -14,9 +14,10 @@ const MonitoringPage: NextPage = () => {
             <MainWrap>
                 <StepFour />
                 <div>
+                    {/*<MonitoringBlock />*/}
                     <WarningsBlock />
                     <EmployeesTestBlock />
-                    <ItScanBlock />
+                    {/*<ItScanBlock />*/}
                     <CyberInsuranceBlock />
                 </div>
             </MainWrap>
@@ -24,4 +25,9 @@ const MonitoringPage: NextPage = () => {
     )
 };
 
-export default MonitoringPage;
+export default isAuth(MonitoringPage);
+
+// Translation props
+import { getStaticProps } from '@/global/helpers/locale-props';
+import MonitoringBlock from "@/global/components/monitoring-block";
+export { getStaticProps };

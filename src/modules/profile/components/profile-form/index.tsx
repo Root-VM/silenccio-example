@@ -1,141 +1,250 @@
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import cn from "classnames";
-import {Input} from "@chakra-ui/react";
-import Dropdown from "react-dropdown";
+import PasswordForm from "@/modules/profile/components/profile-form/password-form";
+import {useDispatch, useSelector} from "react-redux";
+import {isPaidSelector, subscriptionsSelector} from "@/global/store/payment/selector";
+import Moment from "react-moment";
+import {Dispatch} from "@/global/store";
+import {Input, Modal, ModalBody, ModalContent, useDisclosure} from "@chakra-ui/react";
+import {checkStandardSubscriptionPaid} from "@/global/helpers/subscriptions-check";
+import {getInvoicePDFApi} from "@/global/api/payment";
 
 import css from "./profile-form.module.scss";
+import {useTranslations} from "use-intl";
+import {priceModify} from "@/global/helpers/price-modify";
+import AccountData from "@/modules/profile/components/profile-form/account-data";
+import {applyCouponApi, applyCouponNextInvoiceApi} from "@/global/api/payment/coupon";
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
+import {successAlert} from "@/global/helpers/success-alert";
 
 const ProfileForm: FC = () => {
-    const [activeItem, setActiveItem] = useState(1);
+    const subscriptionsS = useSelector(subscriptionsSelector);
+    const [subscriptions, setSubscriptions] = useState<any>([]);
+    const dispatch = useDispatch<Dispatch>();
+    const leaveModal = useDisclosure();
+    const [canceledID, setCanceledID] = useState<number | null>(null);
+    const t = useTranslations('PROFILE_PAGE');
+    const tCommon = useTranslations('COMMON');
+    const tLost = useTranslations('LOST_DATA');
+    const isPaid = useSelector(isPaidSelector);
+    const [coupon, setCoupon] = useState<string>('');
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    const tCoupon = useTranslations('COUPON');
+
+    useEffect(() => {
+        dispatch.payment.getSubscriptions().then();
+    }, []);
+
+    useEffect(() => {
+        if(subscriptionsS?.length) {
+            let standard = subscriptionsS.find(el => el?.subscriptionPlan?.name === 'STANDARD');
+            let free = subscriptionsS.find(el => el?.subscriptionPlan?.name === 'FREE');
+            standard = standard?.id ? standard : undefined;
+            free = free?.id ? free : undefined;
+
+            console.log(standard);
+            setSubscriptions(checkStandardSubscriptionPaid(subscriptionsS) ? [standard] : [free]);
+        }
+    }, [subscriptionsS]);
+
+    const couponCheck = async () => {
+        try {
+            dispatch.common.setLoadingModal(true);
+            // @ts-ignore
+            const recaptchaValue = await executeRecaptcha('CHECK_COUPON');
+
+            let standard = subscriptionsS.find(el => el?.subscriptionPlan?.name === 'STANDARD');
+
+            if(standard?.id) {
+                const request =  await applyCouponNextInvoiceApi(standard?.id,{couponCode: coupon, recaptchaToken: recaptchaValue});
+
+                if(request?.id) {
+                    successAlert(tCoupon('success_added_to_exist_subscription'));
+                }
+            }
+
+            dispatch.common.setLoadingModal(false);
+        } catch (e) {
+            dispatch.common.setLoadingModal(false);
+            console.log(e)
+        }
+    }
+
+    const onCancelSubscription = async () => {
+        canceledID && await dispatch.payment.cancelSubscriptions(canceledID);
+        leaveModal.onClose();
+    }
+
+    const downloadFile = async (id: number) => {
+
+        try{
+            const response = await getInvoicePDFApi(id);
+            response?.url && window?.open(response?.url, '_blank')?.focus();
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     return (
         <div className={css.wrap}>
-            <img className={css.cancel} src="/img/icons/cancel.svg" alt="cancel"/>
-
-            <ul className={css.menuList}>
-                <li className={cn(activeItem === 1 && css.active)} onClick={() => setActiveItem(1)}>Ihr Unternehmen</li>
-                <li className={cn(activeItem === 2 && css.active)} onClick={() => setActiveItem(2)}>Ihre Services</li>
-            </ul>
-
-            <div className={cn(css.content, activeItem === 1 && css.showFirst)}>
-                <form>
-                    <h2>Angaben zu Ihrem Unternehmen</h2>
-                    <p className={css.text}>Basierend auf den unten stehenden Angaben Scannen wir Ihre IT-Sicherheit. Sie können diese Angaben jederzeit anpassen.</p>
-
-                    <p className="formLabel">Domain Ihrer Website*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='Please select'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                    </div>
-
-                    <p className="formLabel">Zahlungsfunktion auf Website*</p>
-                    <div className={css.inputGroup}>
-                        <Dropdown className={cn('myDropdown', css.drop)} options={['Option 1', 'Option 2']} placeholder='Please select'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                    </div>
-
-                    <p className="formLabel">Kontaktformular auf Website*</p>
-                    <div className={css.inputGroup}>
-                        <Dropdown className={cn('myDropdown', css.drop)} options={['Option 1', 'Option 2']} placeholder='Please select'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                    </div>
-
-                    <p className="formLabel">Login / Registrierung auf Website*</p>
-                    <div className={css.inputGroup}>
-                        <Dropdown className={cn('myDropdown', css.drop)} options={['Option 1', 'Option 2']} placeholder='Please select'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                    </div>
-
-                    <p className="formLabel">E-Mail-Domain*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='Please select'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                    </div>
-
-
-                    <h2>Angaben zu Ihren Monitorings</h2>
-                    <p className={css.text}>
-                        Basierend auf den unten stehenden Angaben Scannen wir Ihre Kreditkarten und Telefonnummern. Sie können diese Angaben jederzeit anpassen.
-                    </p>
-
-                    <p className="formLabel">Kreditkarte 1*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='Visa |  C. Mueller | ...003'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                        <img src="/img/icons/card.svg" alt="card"/>
-                    </div>
-
-                    <p className="formLabel">Kreditkarte 2*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='Visa |  U. Keller | ...937'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                        <img src="/img/icons/card.svg" alt="card"/>
-                    </div>
-
-                    <p className="formLabel">Kreditkarte 3*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='Please select'/>
-                        <img src="/img/icons/plus.svg" alt="plus"/>
-                    </div>
-
-                    <p className="formLabel">Telefonnummer 1*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='+41 78 000 00 00'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                        <img src="/img/icons/card.svg" alt="card"/>
-                    </div>
-
-                    <p className="formLabel">Telefonnummer 2*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='+41 78 000 00 00'/>
-                        <img src="/img/icons/pen.svg" alt="pen"/>
-                        <img src="/img/icons/card.svg" alt="card"/>
-                    </div>
-
-                    <p className="formLabel">Telefonnummer 3*</p>
-                    <div className={css.inputGroup}>
-                        <Input className={'myInput'} placeholder='+41 78 000 00 00'/>
-                        <img src="/img/icons/plus.svg" alt="plus"/>
-                    </div>
-
-                </form>
-                <form>
-                    <h2>Ihre Services</h2>
-                    <p className={css.text}>
-                        Basierend auf den unten stehenden Angaben Scannen wir Ihre IT-Sicherheit. Sie können diese Angaben jederzeit anpassen.
-                    </p>
+            <div className={cn(css.content)}>
+                <div>
+                    <h2>{t('title')}</h2>
+                    {
+                        isPaid && <p className={css.text}>
+                            {t('text')}
+                        </p>
+                    }
 
                     <div className={css.cards}>
-                        <div className={css.card}>
-                            <p className={css.cTitle}>Service 1</p>
+                        {
+                            !!subscriptions?.length && subscriptions.map((subscription: any, i: number) => (
+                                <div className={css.card} key={i}>
+                                    <p className={css.cTitle}>
+                                        {
+                                            subscription?.subscriptionPlan?.name === "STANDARD" ?
+                                                tLost('paid_productname') : tLost('preview_productname')
+                                        }
+                                    </p>
 
-                            <p className={css.line}>Vertragsbeginn: <span>29.11.2023</span></p>
-                            <p className={css.line}>Laufzeit: <span>12 Monate</span></p>
-                            <p className={css.line}>Laufzeit Ende: <span>28.11.2024</span></p>
-                            <p className={css.line}>Preis: <span>CHF xyz.-</span></p>
+                                    <div className={css.line}>
+                                        <p>{tCommon('contract_start')}</p>
+                                        <span>
+                                            <Moment date={subscription?.startedAt} format="DD.MM.YYYY"/>
+                                        </span>
+                                    </div>
+                                    <div className={css.line}>
+                                        <p>{tCommon('contract_duration')}</p>
+                                        <span>
+                                            {
+                                                subscription?.subscriptionPlan?.name === "STANDARD" ? tLost('term') :
+                                                    tLost('term_preview')
+                                            }
+                                        </span>
+                                    </div>
+                                    {
+                                        subscription?.subscriptionPlan?.name === "STANDARD" &&
+                                        <div className={css.line}>
+                                            <p>
+                                                {
+                                                    subscription?.endedByCustomerAt ? tLost('contract_end') :
+                                                        t('next_contract_at')
+                                                }
+                                            </p>
+                                            <span>
+                                                <Moment date={subscription?.expiresAt} format="DD.MM.YYYY"/>
+                                            </span>
+                                        </div>
+                                    }
+                                    {
+                                        subscription?.endedByCustomerAt &&
+                                        <div className={css.line}>
+                                            <p>{tLost('termination')}</p>
+                                            <span>
+                                                <Moment date={subscription?.endedByCustomerAt} format="DD.MM.YYYY"/>
+                                            </span>
+                                        </div>
+                                    }
+                                    {
+                                        !isPaid && <div className={css.line}>
+                                            <p>{tCommon('subscription')}</p>
 
-                            <p className={css.cText}>Der Vertrag verlängert sich Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At</p>
+                                            <span>CHF {priceModify(subscription?.subscriptionPlan.price)}</span>
+                                        </div>
+                                    }
 
-                            <button className={cn('myBtn', 'small', 'white', css.btn)}>kündigen</button>
-                        </div>
+                                    {
+                                        isPaid && <div className={css.line}>
+                                            <p>{tCommon('subscription')}</p>
 
-                        <div className={css.card}>
-                            <p className={css.cTitle}>Service 2</p>
+                                            {
+                                                subscription?.lastInvoice?.appliedCoupon?.id ?
+                                                    <span style={{maxWidth: '150px'}}>
+                                                        <span style={{textDecoration: 'line-through', whiteSpace: "nowrap", marginRight: "5px"}}>CHF {priceModify(subscription?.subscriptionPlan?.bruttoPrice)}</span>
+                                                        <span style={{color: "#00008F", whiteSpace: "nowrap"}}>CHF {priceModify(subscription?.lastInvoice?.totalToPay)}</span></span>
+                                                    :
+                                                    <span>CHF {priceModify(subscription?.lastInvoice?.totalToPay)}</span>
+                                            }
+                                        </div>
+                                    }
 
-                            <p className={css.line}>Vertragsbeginn: <span>29.11.2023</span></p>
-                            <p className={css.line}>Laufzeit: <span>12 Monate</span></p>
-                            <p className={css.line}>Laufzeit Ende: <span>28.11.2024</span></p>
-                            <p className={css.line}>Preis: <span>CHF xyz.-</span></p>
+                                    {
+                                        isPaid && <p className={css.cText}>
+                                            {t('l_text')}
+                                        </p>
+                                    }
 
-                            <p className={css.cText}>Der Vertrag verlängert sich Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At</p>
+                                    {
+                                        subscription?.subscriptionPlan?.name !== "FREE" && <>
+                                            <div className={css.btnGroup}>
+                                                <button onClick={() => downloadFile(subscription?.lastInvoiceId)}
+                                                        className={cn('myBtn', 'small', 'white', css.btn)}>
+                                                    {t('btn_1')}
+                                                    <img src="/img/icons/file-grey.svg" alt="file"/>
+                                                </button>
+                                                {
+                                                    !subscription?.endedByCustomerAt &&
+                                                    <button onClick={() => {
+                                                        setCanceledID(subscription.id);
+                                                        leaveModal.onOpen();
+                                                    }}
+                                                            className={cn('myBtn', 'small', 'white', css.btn)}
+                                                    >
+                                                        {t('btn_2')}
+                                                    </button>
+                                                }
+                                            </div>
 
-                            <button className={cn('myBtn', 'small', 'white', css.btn)}>kündigen</button>
-                        </div>
+                                            {
+                                                isPaid && <div className={css.inputWrap}>
+                                                    <p className={cn(css.title, css.titleC)}>{tCoupon('title')}</p>
+                                                    <div>
+                                                        <Input onInput={(e: any) => setCoupon(e.target.value)}
+                                                               placeholder={tCommon('default_placeholder')}
+                                                               className="myInput" type='text'/>
+
+                                                        <img onClick={() => coupon && couponCheck()} src="/img/icons/table_check.svg"
+                                                             alt="check"/>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </>
+                                    }
+                                </div>
+                            ))
+                        }
                     </div>
-                </form>
+                </div>
+
+                <h2 className={css.groupTitle}>{t('masterdata')}</h2>
+                <div className={css.group}>
+                    <PasswordForm/>
+                    <AccountData/>
+                </div>
             </div>
 
 
+            <Modal isOpen={leaveModal.isOpen} onClose={leaveModal.onClose}>
+                <ModalContent className={'myModal'}>
+                    <ModalBody>
+                        <img src="/img/icons/close.svg" alt="close" className='close'
+                             onClick={() => leaveModal.onClose()}/>
+                        <p className='title'>{tLost('termination_text')}</p>
+
+                        <div className='btnGroup'>
+                            <button className={cn('myBtn', 'small', css.btn)}
+                                    onClick={onCancelSubscription}
+                            >{tCommon('yes')}
+                            </button>
+
+                            <button className={cn('myBtn', 'small', 'white', css.btn)}
+                                    onClick={() => leaveModal.onClose()}
+                            >{tCommon('no')}
+                            </button>
+                        </div>
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
         </div>
     )
 }

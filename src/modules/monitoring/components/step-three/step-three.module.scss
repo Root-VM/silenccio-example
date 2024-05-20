@@ -1,7 +1,7 @@
 .wrap{
   width: 100%;
   min-width: 800px;
-  padding: 24px 22px;
+  padding: 20px 18px;
   border-radius: 4px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   background: #fff;
@@ -47,6 +47,7 @@
   }
 
   .phoneLine{
+    position: relative;
     max-width: 411px;
     display: flex;
     align-items: flex-start;
@@ -67,6 +68,11 @@
     justify-content: space-between;
     width: 100%;
     max-width: 411px;
+
+    button:nth-child(2){
+      margin-right: auto;
+      margin-left: 10px;
+    }
   }
 
   .importantText{
@@ -99,6 +105,15 @@
 
     .cancel {
       display: none;
+    }
+
+    .group {
+      flex-direction: column;
+
+      button {
+        margin-bottom: 10px;
+        margin-left: 0!important;
+      }
     }
   }
 }

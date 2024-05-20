@@ -28,7 +28,7 @@
       font-weight: 700;
       line-height: 72px;
       color: #fff;
-      margin-bottom: 16px;
+      margin-bottom: 47px;
       letter-spacing: -0.01px;
       max-width: 1200px;
     }
@@ -165,8 +165,18 @@
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 0.02px;
-      margin: 0 auto 40px auto;
+      margin: 0 auto 30px auto;
       max-width: 690px;
+      width: 100%;
+
+      i{
+        //font-weight: 500;
+        font-size: 18px;
+      }
+
+      &.last {
+        margin-bottom: 36px;
+      }
     }
     .box{
       margin: 0 auto;
@@ -221,6 +231,7 @@
 
       h1{
         font-size: 36px;
+        margin-bottom: 16px;
         line-height: 40px;
       }
     }

@@ -5,10 +5,14 @@ import OnePagerContent from "@/modules/onepager/components/onepager-content";
 const OnePagerPage: NextPage = () => {
 
     return (
-        <MailTemplate noPadding>
+        <MailTemplate hideNavigation noPadding>
             <OnePagerContent />
         </MailTemplate>
     )
 };
 
 export default OnePagerPage;
+
+// Translation props
+import { getStaticProps } from '@/global/helpers/locale-props';
+export { getStaticProps };

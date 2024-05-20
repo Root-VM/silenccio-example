@@ -1,0 +1,19 @@
+.wrap {
+  max-width: 505px!important;
+
+  :global {
+    .chakra-modal__body {
+      padding: 0;
+    }
+
+    .close {
+
+    }
+  }
+
+  iframe {
+    height: 100%;
+    width: 100%;
+    min-height: 75vh;
+  }
+}

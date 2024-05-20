@@ -1,0 +1,37 @@
+.wrap{
+  width: 100%;
+  max-width: 377px;
+
+  h4{
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.01px;
+    color: #333333;
+    margin-bottom: 11px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+
+  .text {
+    color: #333333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02px;
+    margin-bottom: 14px;
+
+    a{
+      text-decoration: underline;
+    }
+  }
+
+}

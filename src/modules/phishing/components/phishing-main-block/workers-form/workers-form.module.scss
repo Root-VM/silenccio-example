@@ -1,0 +1,197 @@
+.wrap{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  h4 {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.01px;
+    margin-bottom: 17px;
+    color: #333;
+  }
+  .text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02px;
+    color: #333;
+    margin-bottom: 36px;
+  }
+
+  .accordion {
+
+    p {
+      font-size: 16px;
+    }
+  }
+  .wA {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .tableHead{
+    margin: 0 52px 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    //width: 100%;
+    min-width: max-content;
+
+    >p:first-child {
+      margin-right: auto;
+      max-width: 180px;
+      min-width: 180px;
+    }
+    p{
+      margin: 0 10px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.02px;
+      color: #333;
+      width: 160px;
+      min-width: 160px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  :global {
+    .myAccordion {
+      min-width: max-content;
+      width: calc(100% - 2px);
+    }
+  }
+  .accordionBtn {
+    display: flex;
+    padding-right: 52px!important;
+    min-width: max-content;
+    width: 100%;
+
+    >p:first-child {
+      margin-right: auto;
+      text-transform: capitalize;
+      max-width: 180px;
+      min-width: 180px;
+      text-align: left;
+    }
+    >p:not(:first-child) {
+        color: #333333;
+      width: 160px;
+      min-width: 160px;
+      text-align: center;
+      margin: 0 10px;
+    }
+  }
+
+  .panel {
+    display: flex;
+    align-items: center;
+
+    >canvas {
+      width: 100%!important;
+      height: auto!important;
+      max-height: 400px;
+    }
+
+    >img{
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover{
+        transition: 0.3s;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .wrap{
+    .tableHead{
+      >p:first-child {
+        max-width: 160px;
+        min-width: 160px;
+      }
+      p{
+        width: 130px;
+        min-width: 130px;
+      }
+    }
+    .accordionBtn {
+
+      >p:first-child {
+        max-width: 160px;
+        min-width: 160px;
+      }
+      >p:not(:first-child) {
+        width: 130px;
+        min-width: 130px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrap{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    h4 {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px;
+    }
+
+    .tableHead{
+      margin: 0 52px 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      overflow: auto;
+    }
+
+    .wA {
+      overflow: auto;
+    }
+
+    .tableHead{
+      //min-width: 700px;
+    }
+    .accordion {
+      //min-width: 700px;
+    }
+    .accordionBtn {
+      display: flex;
+      padding-right: 52px!important;
+    }
+
+    .panel {
+      display: flex;
+      align-items: center;
+
+      >canvas {
+        width: 100%!important;
+        height: auto!important;
+        max-height: 400px;
+      }
+
+      >img{
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover{
+          transition: 0.3s;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

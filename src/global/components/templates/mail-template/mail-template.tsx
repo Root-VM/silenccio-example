@@ -4,15 +4,24 @@ import Footer from "@/global/components/footer/footer";
 import cn from "classnames";
 
 import css from "./main-template.module.scss";
+import ModalLoading from "@/global/components/modal-loading";
 
-const MainTemplate: FC<{children: ReactNode, noPadding?: boolean}> = ({children, noPadding}) => {
+interface MainTemplateProps {
+    children: ReactNode,
+    noPadding?: boolean,
+    hideNavigation?: boolean,
+    hideAxa?:boolean
+}
+const MainTemplate: FC<MainTemplateProps> = ({children, noPadding, hideNavigation, hideAxa}) => {
     return (
         <div className={cn(css.template, noPadding && css.noPadding)}>
-            <Header />
+            <Header hideAxa={hideAxa} hideNavigation={hideNavigation} />
             <div className={css.content}>
                 {children}
             </div>
             <Footer />
+
+            <ModalLoading />
         </div>
     );
 }

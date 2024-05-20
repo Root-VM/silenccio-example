@@ -1,0 +1,51 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.wrap {
+  max-width: 679px!important;
+
+  :global {
+    .chakra-modal__body {
+      padding: 25px 22px!important;
+    }
+  }
+  .title {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px; /* 116% */
+    letter-spacing: -0.01px;
+    color: #333;
+    margin-bottom: 19px;
+  }
+  .text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02px;
+    color: #333;
+    max-width: 540px;
+    margin-bottom: 23px;
+
+  }
+
+  .img{
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: spin 1s infinite linear;
+  }
+
+  .spin {
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+}
